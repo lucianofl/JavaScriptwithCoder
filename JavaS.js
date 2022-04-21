@@ -10,3 +10,4 @@ while (numero <= 50){
     console.log(numero);
     numero++;
 }alert("Ingresa un numero entre 0 y 50")
+..
