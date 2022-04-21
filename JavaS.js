@@ -1,13 +1,12 @@
-let numero = parseInt(prompt("Ingrese un numero del 1 al 50 para saber cual es par"));
+let numero = parseInt(prompt("Ingrese un numero del 1 al 60 para saber cual es par"));
 
-while (numero <= 50){
+while (numero <= 60){
     if (numero % 2 == 0){
         console.log(`${numero} - Este numero es par`);
         numero++;
         continue;
     }
-    if(numero == 50) break;
+    if(numero == 60) break;
     console.log(numero);
     numero++;
-}alert("Ingresa un numero entre 0 y 50")
-..
+}alert("Ingresa un numero entre 0 y 60")
