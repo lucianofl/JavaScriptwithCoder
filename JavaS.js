@@ -9,4 +9,4 @@ while (numero <= 60){
     if(numero == 60) break;
     console.log(numero);
     numero++;
-}alert("Ingresa un numero entre 0 y 60")
+}alert("Ingresa un numero entre 1 y 60")
