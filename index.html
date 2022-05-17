@@ -9,8 +9,45 @@
 </head>
 <body class="body">
   <div class="fondo">
+    <div id="announcements"></div>
+    <div id="scores">
+      <div>
+        <div class="form-group">
+          <label for="txtUser">USUARIO</label>
+          <input type="text" class="form-control" id="txtUser" placeholder="Introduce tu Nick">
+        </div>
+        <div class="form-group">
+          <label for="txtUser">EDAD</label>
+          <input type="text" class="form-control" id="txtAge" placeholder="Introduce tu Edad">
+        </div>
+        <button type="button" class="btn btn-default" id="btnSaveUser">Agregar</button>
+      </div>
+      <div class="container">
+        <table class="table table-hover" id="userTable">
+          <thead>
+            <tr>
+              <th>Nick</th>
+              <th>Edad</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="statsRicky">
+      <img src="./ricky.png" alt="rickyandmory" id="ricky">
+      <div id="enemyHealth"><div id="enemyHealthBar"></div></div>
+    </div>
     <div class="stage">
-      <img src="./yoda.png" alt="yoda" class="yoda" onclick="yodaclick()">
+      <div class="statsYoda">
+        <button id="attack" onClick="fight(id)">Atacar</button>
+        <button id="counter" onClick="fight(id)">Defender</button>
+        <div id="yodaHealth"><div id="yodaHealthBar"></div></div>
+      </div>
+      <img src="./yoda.png" alt="yoda" class="yoda"  onclick="yodaclick()">
     </div>
   </div>
   <script src="/JavaS.js"></script>
