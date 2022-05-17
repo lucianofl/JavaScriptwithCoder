@@ -81,7 +81,7 @@ function drawRankingTable(){
   }
 }
 
-//Variables
+//Variables del juego(Vida, movimiento, barras de vida, ataques, resultados)
 let personajes = [yoda]
 const d = document
 d.addEventListener("keydown", (e)=>{
@@ -91,7 +91,6 @@ const velocidad = 30;
 let left = 0;
 let yourHealth = 100;
 let compHealth = 100;
-
 var yodaMove;
 var enemyMove;
 let savedEnemyMove;
@@ -103,7 +102,66 @@ let attackButton = d.getElementById('attack');
 let counterButton = d.getElementById('counter');
 let playAgain = d.getElementById('playAgain');
 
-//Habilitar botones
+
+// Funciones de movimientos del personaje------------------------------------------------------------------------
+function moveYoda(e,yoda,fondo,statsYoda, ricky){
+    const $yoda = d.querySelector(yoda),
+    $fondo = d.querySelector(fondo)
+    ricky = d.querySelector(ricky)
+    statsYoda = d.querySelector(statsYoda);
+    limitesPj = $yoda.getBoundingClientRect(),
+    limitesFondo = $fondo.getBoundingClientRect();
+
+
+//37= Izquierda. 38=Arriba. 39=Derecha. 40=Abajo. No uso arriba y abajo pero igualmente lo dejo para el futuro.
+
+    switch(e.keyCode){
+        case 37:
+            e.preventDefault();
+            moveLeft();
+            break;
+        case 38:
+            e.preventDefault();
+            break;
+        case 39:
+            e.preventDefault();
+            moveRight();
+            break;    
+        case 40:
+            e.preventDefault();
+            break;   
+    default:
+        break; 
+    }
+
+    function moveLeft(){
+        left -= velocidad;
+        $yoda.style.marginLeft = `${left}px`;
+        statsYoda.style.marginLeft = `${left}px`;
+        if(limitesPj.left < limitesFondo.left){
+            alert("Por ahi no es, hacia la derecha...")
+        }
+        
+    }
+    function moveRight(){
+        left += velocidad;
+        $yoda.style.marginLeft = `${left}px`;
+        statsYoda.style.marginLeft = `${left}px`;
+        if(limitesPj.right > limitesFondo.right){
+            alert("Tenes que matarlos, no besarlos :S")
+        }
+    }
+}
+function yodaclick(){
+    let yodaimg = d.getElementsByClassName("yoda");
+    yodaimg.innerHTML = alert("En la consola te mostrara las caracteristicas de yodita")
+    console.table(personajes);
+}
+// FIN Funciones de movimientos del personaje------------------------------------------------------------------------
+
+
+
+//Habilitar botones de ataque y defensa
 
 function enableButtons() {
 	attackButton.disabled = false;
@@ -188,63 +246,6 @@ function gameOver() {
 
 
 window.onload=enableButtons();
-
-
-// Funciones de movimientos del juego------------------------------------------------------------------------
-function moveYoda(e,yoda,fondo,statsYoda, ricky){
-    const $yoda = d.querySelector(yoda),
-    $fondo = d.querySelector(fondo)
-    ricky = d.querySelector(ricky)
-    statsYoda = d.querySelector(statsYoda);
-    limitesPj = $yoda.getBoundingClientRect(),
-    limitesFondo = $fondo.getBoundingClientRect();
-
-
-//37= Izquierda. 38=Arriba. 39=Derecha. 40=Abajo. No uso arriba y abajo pero igualmente lo dejo para el futuro.
-
-    switch(e.keyCode){
-        case 37:
-            e.preventDefault();
-            moveLeft();
-            break;
-        case 38:
-            e.preventDefault();
-            break;
-        case 39:
-            e.preventDefault();
-            moveRight();
-            break;    
-        case 40:
-            e.preventDefault();
-            break;   
-    default:
-        break; 
-    }
-
-    function moveLeft(){
-        left -= velocidad;
-        $yoda.style.marginLeft = `${left}px`;
-        statsYoda.style.marginLeft = `${left}px`;
-        if(limitesPj.left < limitesFondo.left){
-            alert("Por ahi no es, hacia la derecha...")
-        }
-        
-    }
-    function moveRight(){
-        left += velocidad;
-        $yoda.style.marginLeft = `${left}px`;
-        statsYoda.style.marginLeft = `${left}px`;
-        if(limitesPj.right > limitesFondo.right){
-            alert("Tenes que matarlos, no besarlos :S")
-        }
-    }
-}
-function yodaclick(){
-    let yodaimg = d.getElementsByClassName("yoda");
-    yodaimg.innerHTML = alert("En la consola te mostrara las caracteristicas de yodita")
-    console.table(personajes);
-}
-// Funciones de movimientos del juego------------------------------------------------------------------------
 
 // Funcion de score.
 score = 0;
