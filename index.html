@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/estilos.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
     <title>CoderJavaScript</title>
 </head>
 <body class="body">
@@ -43,8 +44,8 @@
     </div>
     <div class="stage">
       <div class="statsYoda">
-        <button id="attack" onClick="fight(id)">Atacar</button>
-        <button id="counter" onClick="fight(id)">Defender</button>
+        <button id="attack" class="btn btn-danger" onClick="fight(id)">Atacar</button>
+        <button id="counter" class="btn btn-light" onClick="fight(id)">Defender</button>
         <div id="yodaHealth"><div id="yodaHealthBar"></div></div>
       </div>
       <img src="./yoda.png" alt="yoda" class="yoda"  onclick="yodaclick()">
