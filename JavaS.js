@@ -104,6 +104,7 @@ let playAgain = d.getElementById('playAgain');
 
 
 // Funciones de movimientos del personaje------------------------------------------------------------------------
+
 function moveYoda(e,yoda,fondo,statsYoda, ricky){
     const $yoda = d.querySelector(yoda),
     $fondo = d.querySelector(fondo)
@@ -154,12 +155,15 @@ function moveYoda(e,yoda,fondo,statsYoda, ricky){
 }
 function yodaclick(){
     let yodaimg = d.getElementsByClassName("yoda");
-    yodaimg.innerHTML = alert("En la consola te mostrara las caracteristicas de yodita")
-    console.table(personajes);
+    yodaimg.innerHTML = Swal.fire({
+        title: "Caracteristicas de yodita",
+        text : `Nombre: ${yoda.nombre} - Ataque: ${yoda.ataque} - Vida: ${yoda.vida} Especialidad: ${yoda.especialidad} - Debilidad: ${yoda.debilidad}`
+    })
+    console.table(yoda);
 }
 // FIN Funciones de movimientos del personaje------------------------------------------------------------------------
 
-
+// FUNCIONES DE ATAQUE / DEFENSA / VIDA  Y FINAL DEL JUEGO---------------------------------------------------------------------------------------------
 
 //Habilitar botones de ataque y defensa
 
@@ -243,7 +247,7 @@ function gameOver() {
 		playAgain.disabled = true;
 	}
 }
-
+// FIN FUNCIONES DE ATAQUE / DEFENSA / VIDA Y FINAL DEL JUEGO---------------------------------------------------------------------------------------------
 
 window.onload=enableButtons();
 
