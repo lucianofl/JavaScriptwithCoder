@@ -11,7 +11,7 @@ class Personaje{
 //Creando los PJ's
 const yoda = new Personaje("Yodita","Transforma la defensa en ataque","1000","3500","Como va a tener debilidad yodita, sos boludo?")
 
-
+/*
 //Lista de puntajes y ranking...
 
 //----
@@ -80,7 +80,7 @@ function drawRankingTable(){
     tbody.appendChild(row);
   }
 }
-
+*/
 //Variables del juego(Vida, movimiento, barras de vida, ataques, resultados)
 let personajes = [yoda]
 const d = document
@@ -250,7 +250,7 @@ function gameOver() {
 // FIN FUNCIONES DE ATAQUE / DEFENSA / VIDA Y FINAL DEL JUEGO---------------------------------------------------------------------------------------------
 
 window.onload=enableButtons();
-
+/*
 // Funcion de score.
 score = 0;
 d.getElementsByName('score').innerHTML = score;
@@ -258,3 +258,31 @@ d.getElementsByName('score').innerHTML = score;
 function points(){
     
 }
+*/
+
+
+//----------------------------- FETCH-----------------------------------------------------//Introducis tu github y te tira tu informacion
+
+document.getElementById("btn").addEventListener("click", function(){ 
+    let login = document.getElementById("github");
+    fetch(`https://api.github.com/users/${login.value}`)
+    .then(function(heil){
+    console.log(heil);
+    return heil.json()})
+    .then(function(data){ 
+if (data.message==="Not Found"){document.querySelector("#test").innerText = "Error de Usuario"; document.querySelector("#username").innerText = "Git HUB";
+    document.querySelector("#fullname").innerText = "Intenta de nuevo";
+    document.querySelector("#avatar").src ="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png";
+} else{
+    document.querySelector("#avatar").src = data.avatar_url;
+    document.querySelector("#username").innerText = data.login;
+    document.querySelector("#fullname").innerText = data.name;
+    document.querySelector("#siguendo").innerText = data.following;
+    document.querySelector("#seguidores").innerText = data.followers;
+    document.querySelector("#Gists").innerText = data.public_gists;
+    document.querySelector("#Repository").innerText = data.public_repos;
+}}) 
+.catch(function(error){ 
+document.querySelector("title").innerText=error;
+})
+});
